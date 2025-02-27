@@ -2903,10 +2903,10 @@ class RepoAnalyze(object):
 
     if os.path.isdir(reportdir):
       if args.force:
-        sys.stdout.write(_("Warning: Removing recursively: \"%s\"\n") % decode(reportdir))
+        sys.stdout.write(_("WARNING: Removing recursively: \"%s\"\n") % decode(reportdir))
         shutil.rmtree(reportdir)
       else:
-        sys.stdout.write(_("Error: dir already exists (use --force to delete): \"%s\"\n") % decode(reportdir))
+        sys.stdout.write(_("ERROR: dir already exists (use --force to delete): \"%s\"\n") % decode(reportdir))
         sys.exit(1)
 
     os.mkdir(reportdir)
@@ -2915,10 +2915,10 @@ class RepoAnalyze(object):
     stats = RepoAnalyze.gather_data(args)
 
     # Write the reports
-    sys.stdout.write(_("Writing reports to %s...") % decode(reportdir))
+    sys.stdout.write(_("Writing reports to \"%s\"...") % decode(reportdir))
     sys.stdout.flush()
     RepoAnalyze.write_report(reportdir, stats)
-    sys.stdout.write(_("done.\n"))
+    sys.stdout.write(_(" done.\n"))
     sys.stdout.write(_("README: \"%s\"\n") % decode( os.path.join(reportdir, b"README") ))
 
 class FileInfoValueHelper:
