@@ -2903,10 +2903,10 @@ class RepoAnalyze(object):
 
     if os.path.isdir(reportdir):
       if args.force:
-        sys.stdout.write(_("WARNING: Removing recursively: \"%s\"\n") % decode(reportdir))
+        sys.stdout.write(_("Warning: Removing recursively: \"%s\"\n") % decode(reportdir))
         shutil.rmtree(reportdir)
       else:
-        sys.stdout.write(_("ERROR: dir already exists (use --force to delete): \"%s\"\n") % decode(reportdir))
+        sys.stdout.write(_("Error: dir already exists (use --force to delete): \"%s\"\n") % decode(reportdir))
         sys.exit(1)
 
     os.mkdir(reportdir)
@@ -4456,7 +4456,7 @@ class RepoFilter(object):
       ret = subproc.call([arg if arg != '""' else '' for arg in cmd.split()],
                          cwd=source_working_dir)
       if ret != 0: # pragma: no cover
-        m = _("WARNING: Fetching all refs from origin failed")
+        m = _("Warning: Fetching all refs from origin failed")
         print(m)
     if self._args.sensitive_data_removal:
       return
